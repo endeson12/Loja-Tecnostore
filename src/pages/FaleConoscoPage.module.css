@@ -1,0 +1,189 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.content h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.content p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.contactInfo h2,
+.contactForm h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contactItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.contactItem h3 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contactItem p {
+  color: #4a5568;
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  text-align: left;
+}
+
+.contactForm {
+  background: #f7fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0;
+  }
+  
+  .content {
+    padding: 0 1rem;
+    margin: 0 1rem;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contactItem {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .contactItem p {
+    text-align: center;
+  }
+} 

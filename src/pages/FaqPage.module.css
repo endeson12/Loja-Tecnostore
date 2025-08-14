@@ -1,0 +1,133 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.content h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.content p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.faqList {
+  margin: 3rem 0;
+}
+
+.faqItem {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faqItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.answer {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contactInfo {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.contactInfo h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contactInfo p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactInfo li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0;
+  }
+  
+  .content {
+    padding: 0 1rem;
+    margin: 0 1rem;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .question {
+    font-size: 1.2rem;
+  }
+  
+  .answer,
+  .contactInfo p,
+  .contactInfo li {
+    font-size: 1rem;
+  }
+  
+  .faqItem {
+    padding: 1rem;
+  }
+} 

@@ -1,0 +1,54 @@
+.container {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.character {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.character.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeitos especiais para diferentes tipos de texto */
+.container.hero .character {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--primary-color);
+  text-shadow: 0 2px 4px rgba(10, 47, 241, 0.1);
+}
+
+.container.subtitle .character {
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container.hero .character {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .container.subtitle .character {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .container.hero .character {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .container.subtitle .character {
+    font-size: var(--font-size-base);
+  }
+} 

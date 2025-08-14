@@ -1,0 +1,23 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Carrinho de compras azul -->
+  <g transform="translate(10, 15)">
+    <!-- Corpo do carrinho -->
+    <path d="M5 15 L25 15 L30 5 L35 5 L30 15 L25 25 L5 25 Z" fill="#0052ff" stroke="#0052ff" stroke-width="1"/>
+    
+    <!-- Rodas do carrinho -->
+    <circle cx="8" cy="28" r="3" fill="#0052ff"/>
+    <circle cx="22" cy="28" r="3" fill="#0052ff"/>
+    
+    <!-- Ícone de play verde dentro do carrinho -->
+    <g transform="translate(15, 18)">
+      <circle cx="0" cy="0" r="6" fill="#00c49a"/>
+      <polygon points="0,-3 0,3 4,0" fill="white"/>
+    </g>
+  </g>
+  
+  <!-- Texto TecnoStore -->
+  <g transform="translate(50, 0)">
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#121212">Tecno</text>
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#121212">Store</text>
+  </g>
+</svg> 

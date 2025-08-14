@@ -1,0 +1,125 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Laptop 1 (Main) -->
+  <g transform="translate(150, 80)" filter="url(#shadow)">
+    <!-- Base -->
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="4" y="4" width="112" height="72" rx="6" fill="#1a202c"/>
+    <rect x="8" y="8" width="104" height="64" rx="4" fill="#2d3748"/>
+    
+    <!-- Screen -->
+    <rect x="20" y="-60" width="80" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="24" y="-56" width="72" height="52" rx="4" fill="#1a202c"/>
+    <rect x="28" y="-52" width="64" height="44" rx="2" fill="#4a5568"/>
+    <rect x="32" y="-48" width="56" height="36" rx="1" fill="#a0aec0"/>
+    
+    <!-- Keyboard -->
+    <rect x="15" y="15" width="90" height="50" rx="2" fill="#4a5568"/>
+    <rect x="20" y="20" width="80" height="40" rx="1" fill="#2d3748"/>
+    
+    <!-- Keys -->
+    <g fill="#a0aec0">
+      <rect x="25" y="25" width="8" height="8" rx="1"/>
+      <rect x="35" y="25" width="8" height="8" rx="1"/>
+      <rect x="45" y="25" width="8" height="8" rx="1"/>
+      <rect x="55" y="25" width="8" height="8" rx="1"/>
+      <rect x="65" y="25" width="8" height="8" rx="1"/>
+      <rect x="75" y="25" width="8" height="8" rx="1"/>
+      <rect x="85" y="25" width="8" height="8" rx="1"/>
+      
+      <rect x="25" y="35" width="8" height="8" rx="1"/>
+      <rect x="35" y="35" width="8" height="8" rx="1"/>
+      <rect x="45" y="35" width="8" height="8" rx="1"/>
+      <rect x="55" y="35" width="8" height="8" rx="1"/>
+      <rect x="65" y="35" width="8" height="8" rx="1"/>
+      <rect x="75" y="35" width="8" height="8" rx="1"/>
+      <rect x="85" y="35" width="8" height="8" rx="1"/>
+    </g>
+    
+    <!-- Trackpad -->
+    <rect x="30" y="55" width="60" height="20" rx="2" fill="#4a5568"/>
+  </g>
+  
+  <!-- Laptop 2 (Small) -->
+  <g transform="translate(50, 120)" filter="url(#shadow)">
+    <!-- Base -->
+    <rect x="0" y="0" width="80" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="3" y="3" width="74" height="54" rx="4" fill="#1a202c"/>
+    <rect x="6" y="6" width="68" height="48" rx="3" fill="#2d3748"/>
+    
+    <!-- Screen -->
+    <rect x="15" y="-45" width="50" height="45" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="18" y="-42" width="44" height="39" rx="3" fill="#1a202c"/>
+    <rect x="21" y="-39" width="38" height="33" rx="2" fill="#4a5568"/>
+    <rect x="24" y="-36" width="32" height="27" rx="1" fill="#a0aec0"/>
+    
+    <!-- Keyboard -->
+    <rect x="10" y="10" width="60" height="35" rx="2" fill="#4a5568"/>
+    <rect x="13" y="13" width="54" height="29" rx="1" fill="#2d3748"/>
+  </g>
+  
+  <!-- Laptop 3 (Gaming) -->
+  <g transform="translate(280, 100)" filter="url(#shadow)">
+    <!-- Base -->
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="4" y="4" width="92" height="62" rx="6" fill="#1a202c"/>
+    <rect x="8" y="8" width="84" height="54" rx="4" fill="#2d3748"/>
+    
+    <!-- Screen -->
+    <rect x="15" y="-55" width="70" height="55" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <rect x="19" y="-51" width="62" height="47" rx="4" fill="#1a202c"/>
+    <rect x="23" y="-47" width="54" height="39" rx="2" fill="#4a5568"/>
+    <rect x="27" y="-43" width="46" height="31" rx="1" fill="#a0aec0"/>
+    
+    <!-- RGB Keyboard -->
+    <rect x="12" y="12" width="76" height="45" rx="2" fill="#4a5568"/>
+    <rect x="15" y="15" width="70" height="39" rx="1" fill="#2d3748"/>
+    
+    <!-- RGB Keys -->
+    <g>
+      <rect x="20" y="20" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="28" y="20" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="36" y="20" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="44" y="20" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="52" y="20" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="60" y="20" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="68" y="20" width="6" height="6" rx="1" fill="#667eea"/>
+      
+      <rect x="20" y="28" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="28" y="28" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="36" y="28" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="44" y="28" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="52" y="28" width="6" height="6" rx="1" fill="#764ba2"/>
+      <rect x="60" y="28" width="6" height="6" rx="1" fill="#667eea"/>
+      <rect x="68" y="28" width="6" height="6" rx="1" fill="#764ba2"/>
+    </g>
+  </g>
+  
+  <!-- Floating Icons -->
+  <g opacity="0.8">
+    <circle cx="50" cy="250" r="15" fill="#667eea"/>
+    <text x="50" y="255" text-anchor="middle" fill="white" font-size="12" font-weight="bold">💻</text>
+    
+    <circle cx="350" cy="250" r="15" fill="#764ba2"/>
+    <text x="350" y="255" text-anchor="middle" fill="white" font-size="12" font-weight="bold">🖥️</text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g opacity="0.1">
+    <circle cx="100" cy="50" r="20" fill="white"/>
+    <circle cx="300" cy="200" r="15" fill="white"/>
+    <circle cx="150" cy="250" r="10" fill="white"/>
+  </g>
+</svg> 

@@ -1,0 +1,343 @@
+.sidebar {
+  width: 100%;
+  height: fit-content;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: sticky;
+  top: 20px;
+}
+
+.filtersContainer {
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.header h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.clearButton {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.filterSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 1.125rem;
+}
+
+/* Filtro por Marca */
+.brandsContainer {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.brandItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.brandItem:hover {
+  background: #f8fafc;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 18px;
+  width: 18px;
+  background-color: #e5e7eb;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.brandItem:hover .checkmark {
+  border-color: var(--primary-color);
+}
+
+.checkbox:checked ~ .checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkbox:checked ~ .checkmark:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.brandName {
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Loading skeleton para marcas */
+.loadingBrands {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton {
+  height: 20px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Filtro por Preço */
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.priceInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priceInput label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.priceField {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.priceField:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.priceField::placeholder {
+  color: #9ca3af;
+}
+
+/* Sugestões de preço */
+.priceSuggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priceSuggestion {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.priceSuggestion:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Filtros ativos */
+.activeFilters {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f1f5f9;
+}
+
+.activeFilters h4 {
+  margin: 0 0 1rem 0;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.filterTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.removeFilter {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.removeFilter:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Scrollbar personalizada */
+.brandsContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.brandsContainer::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.brandsContainer::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.brandsContainer::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  
+  .filtersContainer {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .clearButton {
+    align-self: flex-end;
+  }
+  
+  .priceContainer {
+    flex-direction: row;
+  }
+  
+  .priceSuggestions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .priceSuggestion {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .priceContainer {
+    flex-direction: column;
+  }
+  
+  .priceSuggestions {
+    flex-direction: column;
+  }
+  
+  .priceSuggestion {
+    flex: none;
+  }
+} 

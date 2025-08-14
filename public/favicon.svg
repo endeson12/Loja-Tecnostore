@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Carrinho de compras azul -->
+  <g transform="translate(4, 8)">
+    <!-- Corpo do carrinho -->
+    <path d="M2 8 L12 8 L14 3 L16 3 L14 8 L12 12 L2 12 Z" fill="#0052ff" stroke="#0052ff" stroke-width="0.5"/>
+    
+    <!-- Rodas do carrinho -->
+    <circle cx="3" cy="14" r="1.5" fill="#0052ff"/>
+    <circle cx="11" cy="14" r="1.5" fill="#0052ff"/>
+    
+    <!-- Ícone de play verde dentro do carrinho -->
+    <g transform="translate(7, 9)">
+      <circle cx="0" cy="0" r="2" fill="#00c49a"/>
+      <polygon points="0,-1 0,1 1.5,0" fill="white"/>
+    </g>
+  </g>
+</svg> 
