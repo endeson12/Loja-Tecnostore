@@ -1,5 +1,5 @@
 # 🚀 TecnoStore - E-commerce Completo
-
+https://loja-tecnostore.netlify.app/
 Uma plataforma de e-commerce moderna e profissional, inspirada em gigantes como Amazon e Shopee, construída com React, Vite e Supabase.
 
 ## ✨ Funcionalidades
