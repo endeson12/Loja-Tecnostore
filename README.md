@@ -189,29 +189,6 @@ CREATE POLICY "Produtos visíveis para todos" ON products
   FOR SELECT USING (true);
 ```
 
-## 🎯 Próximos Passos
 
-- [ ] Implementar checkout completo
-- [ ] Adicionar sistema de avaliações
-- [ ] Implementar busca avançada
-- [ ] Adicionar filtros de preço
-- [ ] Implementar wishlist
-- [ ] Adicionar histórico de pedidos
-- [ ] Implementar notificações push
-- [ ] Adicionar PWA capabilities
-
-## 🤝 Contribuindo
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
----
 
 **Desenvolvido com ❤️ para o curso de React e Node.js**
