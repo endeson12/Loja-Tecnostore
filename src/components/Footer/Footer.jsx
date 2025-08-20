@@ -119,14 +119,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Barra de Copyright */}
-      <div className={styles.copyrightBar}>
-        <div className={styles.container}>
-          <p className={styles.copyrightText}>
-            © 2025 TecnoStore. Todos os direitos reservados.
-          </p>
-        </div>
-      </div>
     </footer>
   )
 }
