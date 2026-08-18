@@ -178,11 +178,29 @@ export const productService = {
     }
 
     try {
-      const { data, error } = await supabase
+      let query = supabase
         .from('products')
         .select('*')
-        .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
-        .order('created_at', { ascending: false })
+
+      if (filters.category && filters.category !== 'all') {
+        query = query.eq('category', categoryMapping[filters.category] || filters.category)
+      }
+      if (filters.selectedBrands?.length) {
+        query = query.in('brand', filters.selectedBrands)
+      }
+      if (filters.priceRange?.min !== '') {
+        query = query.gte('price', parseFloat(filters.priceRange.min))
+      }
+      if (filters.priceRange?.max !== '') {
+        query = query.lte('price', parseFloat(filters.priceRange.max))
+      }
+      if (filters.searchTerm) {
+        query = query.or(
+          `name.ilike.%${filters.searchTerm}%,description.ilike.%${filters.searchTerm}%,category.ilike.%${filters.searchTerm}%`
+        )
+      }
+
+      const { data, error } = await query.order('created_at', { ascending: false })
 
       if (error) throw error
       return { data, error: null }

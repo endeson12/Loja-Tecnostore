@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion'
 import logoTecnoStore from '../../assets/logo-tecnostore.svg'
 import styles from './Footer.module.css'
 
@@ -57,7 +57,7 @@ const Footer = () => {
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Redes Sociais</h3>
             <div className={styles.socialLinks}>
-              <motion.a 
+              <Motion.a 
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -67,8 +67,8 @@ const Footer = () => {
                 aria-label="Siga-nos no Facebook"
               >
                 📘 Facebook
-              </motion.a>
-              <motion.a 
+              </Motion.a>
+              <Motion.a 
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -78,8 +78,8 @@ const Footer = () => {
                 aria-label="Siga-nos no Instagram"
               >
                 📷 Instagram
-              </motion.a>
-              <motion.a 
+              </Motion.a>
+              <Motion.a 
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -89,7 +89,7 @@ const Footer = () => {
                 aria-label="Siga-nos no Twitter"
               >
                 🐦 Twitter
-              </motion.a>
+              </Motion.a>
             </div>
 
             <div className={styles.newsletter}>
@@ -105,14 +105,14 @@ const Footer = () => {
                   required
                   aria-label="E-mail para newsletter"
                 />
-                <motion.button
+                <Motion.button
                   type="submit"
                   className={styles.newsletterButton}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Inscrever-se
-                </motion.button>
+                </Motion.button>
               </form>
             </div>
           </div>

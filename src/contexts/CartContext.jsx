@@ -1,8 +1,7 @@
-import { createContext, useContext, useReducer } from 'react';
+import { useReducer } from 'react';
+import CartContext from './cartContext';
 
 // Contexto do carrinho
-const CartContext = createContext();
-
 // Estado inicial do carrinho
 const initialState = {
   items: [],
@@ -145,14 +144,3 @@ export function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
-
-// Hook personalizado para usar o contexto
-export function useCart() {
-  const context = useContext(CartContext);
-  
-  if (!context) {
-    throw new Error('useCart deve ser usado dentro de um CartProvider');
-  }
-  
-  return context;
-} 

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import { productService } from '../services/productService'
 import useCartStore from '../stores/cartStore'
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel'
@@ -38,12 +38,7 @@ const HomePage = () => {
     { id: 'smartwatch', name: 'Smartwatch', icon: '⌚' }
   ]
 
-  useEffect(() => {
-    fetchProducts()
-    setCurrentPage(1) // Reset para primeira página ao mudar categoria
-  }, [selectedCategory])
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     setLoading(true)
     try {
       let { data, error } = { data: null, error: null }
@@ -64,13 +59,18 @@ const HomePage = () => {
       } else {
         setProducts(data || [])
       }
-    } catch (error) {
+    } catch {
       toast.error('Erro inesperado ao carregar produtos')
       setProducts([])
     } finally {
       setLoading(false)
     }
-  }
+  }, [selectedCategory])
+
+  useEffect(() => {
+    fetchProducts()
+    setCurrentPage(1) // Reset para primeira página ao mudar categoria
+  }, [fetchProducts])
 
   const handleAddToCart = (product) => {
     addToCart(product)
@@ -117,7 +117,7 @@ const HomePage = () => {
           <h2 id="categories-title">Navegue por Categorias</h2>
           <div className={styles.categoriesGrid} role="group" aria-label="Filtros de categoria">
             {categories.map((category) => (
-              <motion.button
+              <Motion.button
                 key={category.id}
                 className={`${styles.categoryCard} ${selectedCategory === category.id ? styles.active : ''}`}
                 onClick={() => setSelectedCategory(category.id)}
@@ -132,7 +132,7 @@ const HomePage = () => {
                   <span className={styles.categoryIcon} aria-hidden="true">{category.icon}</span>
                   <span className={styles.categoryName}>{category.name}</span>
                 </div>
-              </motion.button>
+              </Motion.button>
             ))}
           </div>
         </div>
@@ -153,7 +153,7 @@ const HomePage = () => {
 
           <AnimatePresence mode="wait">
             {loading ? (
-              <motion.div 
+              <Motion.div 
                 key="loading"
                 className={styles.productGrid} 
                 aria-label="Carregando produtos"
@@ -163,9 +163,9 @@ const HomePage = () => {
                 transition={{ duration: 0.3 }}
               >
                 <SkeletonLoader type="product" count={6} />
-              </motion.div>
+              </Motion.div>
             ) : (
-              <motion.div 
+              <Motion.div 
                 key="products"
                 className={styles.productGrid} 
                 role="grid" 
@@ -176,7 +176,7 @@ const HomePage = () => {
                 transition={{ duration: 0.3 }}
               >
                 {currentProducts.map((product, index) => (
-                  <motion.div
+                  <Motion.div
                     key={product.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -191,9 +191,9 @@ const HomePage = () => {
                       onAddToCart={handleAddToCart}
                       formatPrice={formatPrice}
                     />
-                  </motion.div>
+                  </Motion.div>
                 ))}
-              </motion.div>
+              </Motion.div>
             )}
           </AnimatePresence>
 

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import { productService } from '../services/productService'
 import useCartStore from '../stores/cartStore'
 import ProductCard from '../components/ProductCard/ProductCard'
@@ -18,17 +18,7 @@ const BuscaPage = () => {
   const searchTerm = searchParams.get('q') || ''
   const itemsPerPage = 12
 
-  useEffect(() => {
-    if (searchTerm.trim()) {
-      fetchSearchResults()
-      setCurrentPage(1) // Reset para primeira página ao mudar busca
-    } else {
-      setProducts([])
-      setLoading(false)
-    }
-  }, [searchTerm])
-
-  const fetchSearchResults = async () => {
+  const fetchSearchResults = useCallback(async () => {
     setLoading(true)
     try {
       const { data, error } = await productService.searchProducts(searchTerm)
@@ -39,13 +29,23 @@ const BuscaPage = () => {
       } else {
         setProducts(data || [])
       }
-    } catch (error) {
+    } catch {
       toast.error('Erro inesperado ao buscar produtos')
       setProducts([])
     } finally {
       setLoading(false)
     }
-  }
+  }, [searchTerm])
+
+  useEffect(() => {
+    if (searchTerm.trim()) {
+      fetchSearchResults()
+      setCurrentPage(1) // Reset para primeira página ao mudar busca
+    } else {
+      setProducts([])
+      setLoading(false)
+    }
+  }, [fetchSearchResults, searchTerm])
 
   const handleAddToCart = (product) => {
     addToCart(product)
@@ -98,7 +98,7 @@ const BuscaPage = () => {
 
         <AnimatePresence mode="wait">
           {loading ? (
-            <motion.div 
+            <Motion.div 
               key="loading"
               className={styles.productGrid} 
               aria-label="Carregando resultados"
@@ -108,9 +108,9 @@ const BuscaPage = () => {
               transition={{ duration: 0.3 }}
             >
               <SkeletonLoader type="product" count={12} />
-            </motion.div>
+            </Motion.div>
           ) : (
-            <motion.div 
+            <Motion.div 
               key="results"
               className={styles.productGrid} 
               role="grid" 
@@ -121,7 +121,7 @@ const BuscaPage = () => {
               transition={{ duration: 0.3 }}
             >
               {currentProducts.map((product, index) => (
-                <motion.div
+                <Motion.div
                   key={product.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -136,9 +136,9 @@ const BuscaPage = () => {
                     onAddToCart={handleAddToCart}
                     formatPrice={formatPrice}
                   />
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
 

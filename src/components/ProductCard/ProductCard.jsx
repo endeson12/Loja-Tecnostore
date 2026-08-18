@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion'
 import useCartStore from '../../stores/cartStore'
 import toast from 'react-hot-toast'
 import styles from './ProductCard.module.css'
@@ -30,7 +30,7 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
   }
 
   return (
-    <motion.article 
+    <Motion.article 
       className={styles.card} 
       role="article" 
       aria-labelledby={`product-title-${product.id}`}
@@ -46,7 +46,7 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
     >
       <Link to={`/produto/${product.id}`} className={styles.productLink} aria-label={`Ver detalhes de ${product.name}`}>
         <div className={styles.cardImage}>
-          <motion.img 
+          <Motion.img 
             src={product.image} 
             alt={`Imagem do produto ${product.name}`}
             loading="lazy"
@@ -54,7 +54,7 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
             transition={{ duration: 0.3 }}
           />
           {product.originalPrice && product.originalPrice > product.price && (
-            <motion.div 
+            <Motion.div 
               className={styles.discountBadge} 
               aria-label={`Desconto de ${Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%`}
               initial={{ scale: 0 }}
@@ -62,7 +62,7 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
               transition={{ delay: 0.2 }}
             >
               -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
-            </motion.div>
+            </Motion.div>
           )}
         </div>
         
@@ -102,7 +102,7 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
         </div>
       </Link>
       
-      <motion.button 
+      <Motion.button 
         className={styles.cardButton}
         onClick={handleAddToCart}
         aria-label={`Adicionar ${product.name} ao carrinho`}
@@ -112,8 +112,8 @@ const ProductCard = ({ product, onAddToCart, formatPrice }) => {
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         Adicionar ao Carrinho
-      </motion.button>
-    </motion.article>
+      </Motion.button>
+    </Motion.article>
   )
 }
 

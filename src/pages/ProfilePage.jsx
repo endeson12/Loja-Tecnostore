@@ -1,4 +1,4 @@
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import styles from './ProfilePage.module.css'
@@ -16,7 +16,7 @@ const ProfilePage = () => {
         toast.success('Logout realizado com sucesso!')
         navigate('/')
       }
-    } catch (error) {
+    } catch {
       toast.error('Erro inesperado ao sair da conta')
     }
   }

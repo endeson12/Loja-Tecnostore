@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import { productService } from '../../services/productService'
 import styles from './AdvancedFilters.module.css'
 
 const AdvancedFilters = ({ filters, onFiltersChange }) => {
   const [brands, setBrands] = useState([])
   const [loadingBrands, setLoadingBrands] = useState(true)
-  const [priceRange, setPriceRange] = useState({
-    min: '',
-    max: ''
-  })
+  const priceRange = filters.priceRange
 
   // Buscar marcas disponíveis
   useEffect(() => {
@@ -35,15 +32,6 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
     }
   }
 
-  // Atualizar filtros quando mudar
-  useEffect(() => {
-    const newFilters = {
-      ...filters,
-      priceRange
-    }
-    onFiltersChange(newFilters)
-  }, [priceRange, filters.selectedBrands])
-
   const handleBrandChange = (brand) => {
     const newSelectedBrands = filters.selectedBrands.includes(brand)
       ? filters.selectedBrands.filter(b => b !== brand)
@@ -56,10 +44,20 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
   }
 
   const handlePriceChange = (field, value) => {
-    setPriceRange(prev => ({
-      ...prev,
-      [field]: value
-    }))
+    onFiltersChange({
+      ...filters,
+      priceRange: {
+        ...priceRange,
+        [field]: value
+      }
+    })
+  }
+
+  const applyPriceRange = (newPriceRange) => {
+    onFiltersChange({
+      ...filters,
+      priceRange: newPriceRange
+    })
   }
 
   const clearAllFilters = () => {
@@ -67,7 +65,6 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
       selectedBrands: [],
       priceRange: { min: '', max: '' }
     })
-    setPriceRange({ min: '', max: '' })
   }
 
   const formatPrice = (price) => {
@@ -114,7 +111,7 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
             ) : (
               <AnimatePresence>
                 {brands.map((brand, index) => (
-                  <motion.label
+                  <Motion.label
                     key={brand}
                     className={styles.brandItem}
                     initial={{ opacity: 0, x: -20 }}
@@ -129,7 +126,7 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
                     />
                     <span className={styles.checkmark}></span>
                     <span className={styles.brandName}>{brand}</span>
-                  </motion.label>
+                  </Motion.label>
                 ))}
               </AnimatePresence>
             )}
@@ -176,25 +173,25 @@ const AdvancedFilters = ({ filters, onFiltersChange }) => {
           {/* Sugestões de preço */}
           <div className={styles.priceSuggestions}>
             <button
-              onClick={() => setPriceRange({ min: '0', max: '1000' })}
+              onClick={() => applyPriceRange({ min: '0', max: '1000' })}
               className={styles.priceSuggestion}
             >
               Até R$ 1.000
             </button>
             <button
-              onClick={() => setPriceRange({ min: '1000', max: '3000' })}
+              onClick={() => applyPriceRange({ min: '1000', max: '3000' })}
               className={styles.priceSuggestion}
             >
               R$ 1.000 - R$ 3.000
             </button>
             <button
-              onClick={() => setPriceRange({ min: '3000', max: '5000' })}
+              onClick={() => applyPriceRange({ min: '3000', max: '5000' })}
               className={styles.priceSuggestion}
             >
               R$ 3.000 - R$ 5.000
             </button>
             <button
-              onClick={() => setPriceRange({ min: '5000', max: '' })}
+              onClick={() => applyPriceRange({ min: '5000', max: '' })}
               className={styles.priceSuggestion}
             >
               Acima de R$ 5.000

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import useCartStore from '../stores/cartStore'
 import toast from 'react-hot-toast'
 import styles from './CartPage.module.css'
@@ -67,7 +67,7 @@ const CartPage = () => {
           <section className={styles.cartItems} aria-label="Lista de itens do carrinho">
             <AnimatePresence>
               {cartItems.map((item, index) => (
-                <motion.div 
+                <Motion.div 
                   key={item.id} 
                   className={styles.cartItem}
                   initial={{ opacity: 0, x: -20 }}
@@ -125,7 +125,7 @@ const CartPage = () => {
                     </span>
                   </div>
 
-                  <motion.button 
+                  <Motion.button 
                     className={styles.removeItemButton}
                     onClick={() => handleRemoveItem(item.id)}
                     aria-label={`Remover ${item.name} do carrinho`}
@@ -135,8 +135,8 @@ const CartPage = () => {
                     type="button"
                   >
                     ×
-                  </motion.button>
-                </motion.div>
+                  </Motion.button>
+                </Motion.div>
               ))}
             </AnimatePresence>
           </section>
@@ -160,7 +160,7 @@ const CartPage = () => {
             </div>
 
             <div className={styles.cartActions}>
-              <motion.button 
+              <Motion.button 
                 className={styles.clearCartButton}
                 onClick={handleClearCart}
                 whileHover={{ scale: 1.02 }}
@@ -170,9 +170,9 @@ const CartPage = () => {
                 type="button"
               >
                 Esvaziar Carrinho
-              </motion.button>
+              </Motion.button>
               
-              <motion.button 
+              <Motion.button 
                 className={styles.checkoutButton}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -181,7 +181,7 @@ const CartPage = () => {
                 type="button"
               >
                 Finalizar Compra
-              </motion.button>
+              </Motion.button>
             </div>
 
             <Link to="/" className={styles.continueShoppingLink} aria-label="Voltar para a página inicial">

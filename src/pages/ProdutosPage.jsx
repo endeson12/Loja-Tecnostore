@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useCallback } from 'react'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import { productService } from '../services/productService'
 import useCartStore from '../stores/cartStore'
 import ProductCard from '../components/ProductCard/ProductCard'
@@ -43,12 +43,7 @@ const ProdutosPage = () => {
     { value: 'rating', label: 'Melhor Avaliação' }
   ]
 
-  useEffect(() => {
-    fetchProducts()
-    setCurrentPage(1)
-  }, [selectedCategory, searchTerm, sortBy, filters])
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     setLoading(true)
     try {
       // Usar o novo método com filtros avançados
@@ -87,13 +82,18 @@ const ProdutosPage = () => {
         
         setProducts(filteredProducts)
       }
-    } catch (error) {
+    } catch {
       toast.error('Erro inesperado ao carregar produtos')
       setProducts([])
     } finally {
       setLoading(false)
     }
-  }
+  }, [filters.priceRange, filters.selectedBrands, searchTerm, selectedCategory, sortBy])
+
+  useEffect(() => {
+    fetchProducts()
+    setCurrentPage(1)
+  }, [fetchProducts])
 
   const handleAddToCart = (product) => {
     addToCart(product)
@@ -193,7 +193,7 @@ const ProdutosPage = () => {
 
               <AnimatePresence mode="wait">
                 {loading ? (
-                  <motion.div 
+                  <Motion.div 
                     key="loading"
                     className={styles.productGrid} 
                     initial={{ opacity: 0 }}
@@ -202,9 +202,9 @@ const ProdutosPage = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <SkeletonLoader type="product" count={12} />
-                  </motion.div>
+                  </Motion.div>
                 ) : (
-                  <motion.div 
+                  <Motion.div 
                     key="products"
                     className={styles.productGrid} 
                     initial={{ opacity: 0 }}
@@ -213,7 +213,7 @@ const ProdutosPage = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {currentProducts.map((product, index) => (
-                      <motion.div
+                      <Motion.div
                         key={product.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -228,9 +228,9 @@ const ProdutosPage = () => {
                           onAddToCart={handleAddToCart}
                           formatPrice={formatPrice}
                         />
-                      </motion.div>
+                      </Motion.div>
                     ))}
-                  </motion.div>
+                  </Motion.div>
                 )}
               </AnimatePresence>
 

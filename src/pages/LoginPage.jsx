@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../hooks/useAuth'
 import toast from 'react-hot-toast'
 import styles from './AuthPages.module.css'
 
@@ -24,7 +24,7 @@ const LoginPage = () => {
         toast.success('Login realizado com sucesso!')
         navigate('/')
       }
-    } catch (error) {
+    } catch {
       toast.error('Erro inesperado ao fazer login')
     } finally {
       setLoading(false)

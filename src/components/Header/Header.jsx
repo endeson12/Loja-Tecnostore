@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuth } from '../../hooks/useAuth'
 import useCartStore from '../../stores/cartStore'
 import logoTecnoStore from '../../assets/logo-tecnostore.svg'
 import SearchBar from '../SearchBar/SearchBar'

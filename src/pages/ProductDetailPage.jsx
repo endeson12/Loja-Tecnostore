@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion as Motion, AnimatePresence } from 'framer-motion'
 import { productService } from '../services/productService'
 import useCartStore from '../stores/cartStore'
 import toast from 'react-hot-toast'
@@ -29,7 +29,7 @@ const ProductDetailPage = () => {
         }
         
         setProduct(data)
-      } catch (error) {
+      } catch {
         toast.error('Erro inesperado ao carregar produto')
         navigate('/')
       } finally {
@@ -165,7 +165,7 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Botão Adicionar ao Carrinho */}
-          <motion.button 
+          <Motion.button 
             className={styles.addToCartButton}
             onClick={handleAddToCart}
             whileHover={{ scale: 1.05 }}
@@ -175,7 +175,7 @@ const ProductDetailPage = () => {
             type="button"
           >
             Adicionar ao Carrinho
-          </motion.button>
+          </Motion.button>
         </section>
       </div>
 
@@ -210,7 +210,7 @@ const ProductDetailPage = () => {
         <div className={styles.tabContent}>
           <AnimatePresence mode="wait">
             {activeTab === 'description' && (
-              <motion.div 
+              <Motion.div 
                 key="description"
                 className={styles.descriptionContent}
                 role="tabpanel"
@@ -230,11 +230,11 @@ const ProductDetailPage = () => {
                     ))}
                   </ul>
                 )}
-              </motion.div>
+              </Motion.div>
             )}
 
             {activeTab === 'specifications' && (
-              <motion.div 
+              <Motion.div 
                 key="specifications"
                 className={styles.specificationsContent}
                 role="tabpanel"
@@ -257,7 +257,7 @@ const ProductDetailPage = () => {
                 ) : (
                   <p>Especificações não disponíveis para este produto.</p>
                 )}
-              </motion.div>
+              </Motion.div>
             )}
           </AnimatePresence>
         </div>
